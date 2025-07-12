@@ -2,6 +2,7 @@ import json
 
 
 def filter_users_by_name(name):
+    """Filter users from the JSON file by name (case-insensitive) and print the results."""
     with open("users.json", "r") as file:
         users = json.load(file)
 
@@ -14,6 +15,7 @@ def filter_users_by_name(name):
 
 
 def filter_users_by_age(age):
+    """Filter users from the JSON file by age and print the results."""
     with open("users.json", "r") as file:
         users = json.load(file)
 
@@ -26,6 +28,7 @@ def filter_users_by_age(age):
 
 
 def filter_users_by_email(email):
+    """Filter users from the JSON file by email (case-insensitive) and print the results."""
     with open("users.json", "r") as file:
         users = json.load(file)
 
@@ -37,7 +40,8 @@ def filter_users_by_email(email):
         print(f"No user found with email '{email}'.")
 
 
-if __name__ == "__main__":
+def main():
+    """Prompt user for a filter option and perform filtering accordingly."""
     filter_option = input("What would you like to filter by? Choose from <Name> / <Age> / <Email>: ").strip().lower()
 
     if filter_option == "name":
@@ -51,3 +55,7 @@ if __name__ == "__main__":
         filter_users_by_email(email_to_search)
     else:
         print("Filtering by that option is not yet supported.") #Change validation
+
+
+if __name__ == "__main__":
+    main()
