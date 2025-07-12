@@ -6,18 +6,22 @@ def filter_users_by_name(name):
         users = json.load(file)
 
     filtered_users = [user for user in users if user["name"].lower() == name.lower()]
-
     for user in filtered_users:
         print(user)
+
+    if not filtered_users:
+        print(f"No user found with name '{name}'.")
 
 def filter_users_by_age(age):
     with open("users.json", "r") as file:
         users = json.load(file)
 
     filtered_users = [user for user in users if user["age"] == age]
-
     for user in filtered_users:
         print(user)
+
+    if not filtered_users:
+        print(f"No user found with age '{age}'.")
 
 
 if __name__ == "__main__":
@@ -30,4 +34,4 @@ if __name__ == "__main__":
         age_to_search = int(input("Enter age to filter user: "))
         filter_users_by_age(age_to_search)
     else:
-        print("Filtering by that option is not yet supported.")
+        print("Filtering by that option is not yet supported.") #Change validation
